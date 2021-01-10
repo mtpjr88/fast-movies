@@ -32,12 +32,11 @@ const Home = () => {
 		{ selectedMovies, allMovies },
 		{ setSelectedMovies, setAllMovies }
 	] = useSelectedMovies();
+
 	const [getMovies, { Search: movies, Error }] = useQuery(getMoviesByTitle);
 
 	const handleChange = ({ target: { value } }) => setSearchInput(value);
-	const handleClick = async () => {
-		await getMovies(searchInput);
-	};
+	const handleClick = async () => await getMovies(searchInput);
 
 	useEffect(() => {
 		if (movies?.length) {

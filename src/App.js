@@ -1,5 +1,5 @@
 import './App.css';
-import Main from './modules/Main';
+import Main from './containers/Main';
 import BaseAppProviders from './state/providers/BaseAppProviders';
 
 function App() {

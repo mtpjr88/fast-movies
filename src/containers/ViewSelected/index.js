@@ -21,9 +21,9 @@ const ViewSelected = () => {
 	const history = useHistory();
 
 	const [{ selectedMovies }, { setSelectedMovies }] = useSelectedMovies();
-	const handleRemove = (id) => {
+	const handleRemove = (id) =>
 		setSelectedMovies(selectedMovies?.filter((x) => x.imdbID !== id));
-	};
+
 	return (
 		<Container className={classes.root}>
 			<form className={classes.input} noValidate autoComplete='off'>
