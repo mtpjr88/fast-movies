@@ -23,6 +23,7 @@ const MovieCard = ({
 	year,
 	imdbID,
 	showRemove = false,
+	handleRemove,
 	...props
 }) => {
 	const classes = useStyles();
@@ -35,7 +36,7 @@ const MovieCard = ({
 			{...props}
 		>
 			{showRemove && (
-				<Button variant='contained' onClick={() => props?.handleRemove(imdbID)}>
+				<Button variant='contained' onClick={() => handleRemove?.(imdbID)}>
 					Remove
 				</Button>
 			)}

@@ -6,8 +6,8 @@ import {
 	Typography
 } from '@material-ui/core';
 import { useEffect, useState } from 'react';
-import GridLayout from '../../components/@layout/Grid';
-import MovieCard from '../../components/MovieCard';
+import GridLayout from '../../common/@layout/Grid';
+import MovieCard from '../../common/MovieCard';
 import { getMoviesByTitle } from '../../api/movies';
 import { useQuery } from '../../state/hooks/useQuery';
 import { useSelectedMovies } from '../../state/hooks/useSelectedMovies';
@@ -85,7 +85,7 @@ const Home = () => {
 						{Error} {ERRORS.EXHAUSTIVE_RESULTS}
 					</Typography>
 				) : (
-					allMovies?.map((x) => (
+					allMovies?.map((x, idx) => (
 						<MovieCard
 							title={x.Title}
 							type={x.Type}
@@ -94,6 +94,7 @@ const Home = () => {
 							poster={x.Poster}
 							onClick={handleMovieClick(x)}
 							selected={selectedMovies?.some((s) => s.imdbID === x.imdbID)}
+							key={`move_card_${idx}`}
 						/>
 					))
 				)}

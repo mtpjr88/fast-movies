@@ -1,7 +1,7 @@
 import { Button, Container, makeStyles } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
-import GridLayout from '../../components/@layout/Grid';
-import MovieCard from '../../components/MovieCard';
+import GridLayout from '../../common/@layout/Grid';
+import MovieCard from '../../common/MovieCard';
 
 import { useSelectedMovies } from '../../state/hooks/useSelectedMovies';
 
@@ -37,7 +37,7 @@ const ViewSelected = () => {
 				</Button>
 			</form>
 			<GridLayout>
-				{selectedMovies?.map((x) => (
+				{selectedMovies?.map((x, idx) => (
 					<MovieCard
 						title={x.Title}
 						type={x.Type}
@@ -46,6 +46,7 @@ const ViewSelected = () => {
 						poster={x.Poster}
 						showRemove={true}
 						handleRemove={handleRemove}
+						key={`selected_movie_card_${idx}`}
 					/>
 				))}
 			</GridLayout>
